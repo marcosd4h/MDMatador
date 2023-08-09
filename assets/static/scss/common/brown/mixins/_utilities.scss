@@ -1,0 +1,9 @@
+/* Miscellaneous Mixins */
+
+@mixin bg-variant($color) {
+  background-color: $color !important;
+	background: $color !important;;
+}
+@mixin text-variant($color) {
+	color: $color !important;
+}

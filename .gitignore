@@ -1,0 +1,14 @@
+# executables
+*.exe
+
+# output directories
+build
+bin
+tmp
+
+# generated artifacts
+build-errors.log
+db.sqlite
+
+# IDE
+.vscode

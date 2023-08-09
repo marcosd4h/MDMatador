@@ -1,0 +1,53 @@
+//Badge Mixins
+
+// Badge outlined variations
+@mixin badge-outline-variations($color) {
+	color: $color;
+	border: 1px solid $color; 
+}
+@mixin badge-opacity-variations($color) {
+	background: lighten( $color, 28% );
+	color:darken($color,20%);
+	border-radius: 6px;
+}
+@mixin badge-variations($color) {
+	color: lighten($color, 90%);
+	background: $color;
+	border: 1px solid $color;
+	&:not(.badge-primary) {
+    border: 1px solid $color;
+		color: lighten($color, 90%);
+		background: $color;     
+  }
+	
+}
+@mixin badge-pill-variations($color) { 
+	color: lighten($color, 90%);
+	background: $color;
+	border: 1px solid $color;
+	border-radius: 10rem;
+	&:not(.badge-pill-primary) {
+    border: 1px solid $color;
+		color: lighten($color, 90%);
+		background: $color;     
+  }
+}
+@mixin badge-opacity-variations-purple($color) {
+	background: lighten( $color, 45% );
+	color:$color;
+	border-radius: 6px;
+}
+@mixin badge-variations-sale($color) {
+	color: lighten($color, 90%) !important;
+	background: $color !important;
+	border: 1px solid $color !important;
+	border-radius: 4px;
+}
+@mixin badge-outline-variations-sale($color) {
+	color: $color !important;
+	border: 1px solid $color !important; 
+}
+@mixin badge-outline-variations-hr($color) {
+	color: $color !important;
+	border: 1px solid $color !important; 
+}

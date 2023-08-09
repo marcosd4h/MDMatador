@@ -1,0 +1,78 @@
+{{define "base"}}
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>{{template "page:title" .}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {{block "page:meta" .}}{{end}}
+        
+        <link rel="stylesheet" href="/static/vendors/feather/feather.css">
+        <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
+        <link rel="stylesheet" href="/static/vendors/ti-icons/css/themify-icons.css">
+        <link rel="stylesheet" href="/static/vendors/typicons/typicons.css">
+        <link rel="stylesheet" href="/static/vendors/simple-line-icons/css/simple-line-icons.css">
+        <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
+        <link rel="stylesheet" href="/static/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+        <link rel="stylesheet" href="/static/css/vertical-layout-dark/style.css">
+        <link rel="stylesheet" href="/static/css/bootstrap-toogle/bootstrap-toggle.css">
+        <link rel="stylesheet" href="/static/css/xtermjs/xtermjs.css">         
+        <link rel="shortcut icon" href="/static/images/favicon.png" />        
+    </head>
+    <body>
+
+        {{if .AuthenticatedUser}}
+            <div class="container-scroller">
+                {{template "partial:nav" .}}
+
+                <div class="container-fluid page-body-wrapper">
+                    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                        <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                            <i class="mdi mdi mdi-laptop menu-icon"></i>
+                            <span class="menu-title-big">Devices</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="menu-payloads" href="javascript:{}" onclick="alert('Not Implemented');" class="nav-link">
+                            <i class="mdi mdi-cube-outline menu-icon"></i>
+                            <span class="menu-title-big">Payloads</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="menu-settings" href="javascript:{}" onclick="alert('Not Implemented');" class="nav-link">
+                            <i class="mdi mdi-tune menu-icon"></i>
+                            <span class="menu-title-big">Settings</span>
+                            </a>
+                        </li>          
+                        </ul>
+                    </nav>
+                    <div class="main-panel">
+                        <div class="content-wrapper">
+                            <div class="row"> 
+                                {{template "page:main" .}}
+                            </div>
+                        </div>
+                        {{template "partial:footer" .}}
+                    </div>
+                </div>
+            </div>
+        {{end}}
+
+        <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+        <script src="/static/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="/static/vendors/datatables.net/jquery.dataTables.js"></script>
+        <script src="/static/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+        <script src="/static/js/off-canvas.js"></script>
+        <script src="/static/js/hoverable-collapse.js"></script>
+        <script src="/static/js/template.js"></script>
+        <script src="/static/js/settings.js"></script>
+        <script src="/static/js/mdm_dashboard.js"></script>
+        <script src="/static/js/data-table.js"></script>
+        <script src="/static/js/bootstrap-toggle.js"></script>
+        <script src="/static/js/xterm.js"></script>        
+        <script src="/static/js/mdm_terminal.js"></script>      
+    </body>
+</html>
+{{end}}

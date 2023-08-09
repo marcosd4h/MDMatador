@@ -1,0 +1,173 @@
+/* Utilities */
+
+.grid-margin {
+  margin-bottom: $card-spacing-y;
+}
+.grid-margin-sm-0 {
+  @media (min-width: 576px) {
+    margin-bottom: 0;
+  }
+}
+.grid-margin-md-0 {
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
+}
+.grid-margin-lg-0 {
+  @media (min-width: 992px) {
+    margin-bottom: 0;
+  }
+}
+.grid-margin-xl-0 {
+  @media (min-width: 1200px) {
+    margin-bottom: 0;
+  }
+}
+.img-lg {
+  width: 92px;
+  height: 92px;
+}
+.img-sm {
+  width: 43px;
+  height: 43px;
+  &.rounded-10 {
+    border-radius: 10px;
+  }
+  &.rounded-4 {
+    border-radius: 4px;
+  }
+  &.rounded {
+    border-radius: 100% !important;
+  }
+}
+.img-xs {
+  width: 32px;
+  height: 32px;
+}
+.img-ss {
+  width: 26px;
+  height: 26px;
+}
+.stretch-card {
+  @include display-flex;
+  @include align-items(stretch);
+  @include justify-content(stretch);
+  >.card{
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+.border-right-sm {
+  @media (min-width: 576px) {
+    border-right: $border-width solid $border-color;
+  }
+}
+.border-right-md {
+  @media (min-width: 768px) {
+    border-right: $border-width solid $border-color;
+  }
+}
+.border-right-lg {
+  @media (min-width: 992px) {
+    border-right: $border-width solid $border-color;
+  }
+}
+
+.border-left-sm {
+  @media (min-width: 576px) {
+    border-left: $border-width solid $border-color;
+  }
+}
+.border-left-md {
+  @media (min-width: 768px) {
+    border-left: $border-width solid $border-color;
+  }
+}
+.border-left-lg {
+  @media (min-width: 992px) {
+    border-left: $border-width solid $border-color;
+  }
+}
+
+.text-gray {
+  color: #8c8c8c;
+}
+
+.text-black {
+  color: $black;
+}
+
+.text-small {
+  font-size: 12px;
+  &.ps-4 {
+    padding-left: 30px !important;
+  }
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.hover-cursor {
+  &:hover {
+    cursor: pointer;
+  }
+}
+.min-width-cell {
+  min-width: 110px;
+}
+.font-weight-medium {
+  font-weight: 500;
+}
+.fs-30 {
+  font-size: 30px;
+}
+.fs-18 {
+  font-size: 18px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.bg-primary {
+  background: $primary !important;
+}
+.bg-secondary {
+  background: $secondary !important;
+}
+.bg-purple {
+  background: $purple;
+}
+.text-purple {
+  color: $purple;
+}
+.text-cyan {
+  color: $cyan;
+}
+.text-dark-cyan {
+  color: $cyan-dark;
+}
+
+.color-themes {
+  display: flex;
+  justify-content:center;
+  margin-top: 20px;
+  .color-theme {
+    width: 26px;
+    height: 26px;
+    border-radius: 100%;
+    margin: 10px 18px;
+    &.default {
+      background: $theme-default;
+    }
+    &.dark {
+      background: $theme-dark;
+    }
+    &.brown {
+      background: $theme-brown;
+    }
+  }
+}
+.mb-20 {
+  margin-bottom: 20px;
+}

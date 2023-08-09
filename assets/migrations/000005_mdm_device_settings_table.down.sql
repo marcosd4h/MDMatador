@@ -1,0 +1,1 @@
+DROP TABLE mdm_device_settings;

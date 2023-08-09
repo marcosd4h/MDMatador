@@ -1,0 +1,1 @@
+DROP TABLE mdm_pending_device_operations;

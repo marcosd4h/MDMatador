@@ -1,0 +1,49 @@
+{{define "page:title"}}Devices{{end}}
+
+{{define "page:main"}}
+
+    <div class="col-12">                
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                <div class="col-sm-12 ">
+                    <div class="statistics-details d-flex align-items-center justify-content-between">
+                    <div>
+                        <p class="statistics-title text-white">Name</p>
+                        <span class="fw-bold"><h3 class="rate-percentage">{{ .Settings.DNSComputerName }}</h3></span>
+                    </div>
+                    <div>
+                        <p class="statistics-title text-white">Windows Edition</p>
+                        <span class="fw-bold"><h3 class="rate-percentage">{{ .Settings.WindowsEdition }}</h3></span>
+                    </div>
+                    <div>
+                        <p class="statistics-title text-white">Windows Version</p>
+                        <span class="fw-bold"><h3 class="rate-percentage">{{ .Settings.WindowsVersion }}</h3></span>
+                    </div>
+                    <div class="d-none d-md-block">
+                        <p class="statistics-title text-white">Locale</p>
+                        <span class="fw-bold"><h3 class="rate-percentage">{{ .Settings.OSLocale }}</h3></span>
+                    </div>
+                    <div class="d-none d-md-block">
+                        <p class="statistics-title text-white">Last Seen</p>
+                        <span class="fw-bold"><h3 class="rate-percentage">{{ .Device.LastSeen }}</h3></span>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>                            
+            </div>
+
+            <br>
+            <div id="global-settings" data-device-id="{{ .Device.ID }}" data-static-content-url="{{ .Settings.StaticContentURL }}"></div>
+            <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                <div class="card-body">
+                  <div id="terminal"></div>
+                </div>                            
+              </div>
+            </div>
+            </div>                    
+    </div>
+{{end}}

@@ -1,0 +1,42 @@
+// Breadcrumb color variations
+@mixin breadcrumb-inverse-variant($color) {
+  background: lighten($color, 15%);
+  border-color: $color;
+
+  .breadcrumb-item {
+    color: darken($color, 30%);
+
+    &:before {
+      color: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+
+  &.breadcrumb-custom {
+    background: transparent;
+
+    .breadcrumb-item {
+      background: lighten($color, 35%);
+
+      a {
+        color: $color;
+        border: none;
+
+        &:before {
+          border-left-color: lighten($color, 25%);
+        }
+      }
+
+      span {
+        color: $color;
+      }
+
+      &:last-child {
+        background: transparent;
+      }
+    }
+  }
+}

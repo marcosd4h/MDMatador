@@ -1,0 +1,41 @@
+/* Flot chart */
+
+.flot-chart-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  max-height: 100%;
+  .flot-x-axis,
+  .flot-y-axis {
+    fill: $body-color;
+  }
+}
+
+.flot-chart {
+  width: 100%;
+  position: relative;
+  canvas {
+    position:absolute;
+    top: 0;
+    bottom: 0;
+  }
+  max-width: none;
+  height: 400px;
+}
+.c3-legend-item {
+  fill: $body-color;
+}
+.c3 line, 
+.c3 path {
+  stroke: $border-color;
+}
+.c3 {
+    text {
+    fill: $body-color;
+  }
+}
+.ct-label {
+  fill: $body-color;
+  color: $body-color;
+}

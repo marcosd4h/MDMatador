@@ -1,0 +1,48 @@
+/* Badges */
+
+.badge {
+  border-radius: 0px;
+  font-size: 12px;
+  line-height: 1;
+  padding: .375rem .5625rem;
+  font-weight: normal;
+  &.badge-pill {
+    border-radius: 20rem;
+  }
+  &.rounded {
+    border-radius: 20rem !important;
+  }
+}
+
+/*Badge outlined variations*/
+@each $color, $value in $theme-colors {
+  .badge-outline-#{$color} {
+    @include badge-outline-variations($value);
+  }
+}
+@each $color, $value in $theme-colors {
+  .badge-opacity-#{$color} {
+    @include badge-opacity-variations($value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .badge-#{$color} {
+    @include badge-variations($value);
+  }
+}
+@each $color, $value in $theme-colors {
+  .badge-pill-#{$color} {
+    @include badge-variations-pill($value);
+  }
+}
+@each $color, $value in $theme-colors {
+  .badge-pill-#{$color} {
+    @include badge-pill-variations($value);
+  }
+}
+@each $color, $value in $theme-colors-purple {
+  .badge-opacity-purple-#{$color} {
+    @include badge-opacity-variations-purple($value);
+  }
+}

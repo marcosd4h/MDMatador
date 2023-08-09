@@ -1,0 +1,51 @@
+@each $color, $value in $social-colors {
+  .bg-#{$color} {
+    background: social-color($color);
+  }
+}
+
+@each $color, $value in $theme-gradient-colors {
+  .bg-gradient-#{$color} {
+    background: $value;
+  }
+}
+@each $color, $value in $theme-colors {
+  .bg-opacity-#{$color} {
+    background: rgba($value, .12);
+    padding: 20px;
+    border-radius: 14px;
+    color: $text-light-grey-1;
+    i {
+      color: $black;
+      font-size: 26px;
+    }
+    p {
+      margin-top: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1;
+      text-align: start;
+    }
+
+  }
+}
+@each $color, $value in $theme-colors {
+  .payment-circle-#{$color} {
+    width: 8px;
+    height: 8px;
+    border: 3px solid $value;
+    border-radius: 100%;
+    position: relative;
+    &:before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      border: 1px solid $value;
+      position: absolute;
+      left: -7px;
+      top: -7px;
+      border-radius: 100%;
+    }
+
+  }
+}

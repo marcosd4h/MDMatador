@@ -1,0 +1,183 @@
+{{define "page:title"}}Devices{{end}}
+
+{{define "page:main"}}
+
+    <div class="col-12">                
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                <div class="col-sm-12 ">
+                    <div class="statistics-details d-flex align-items-center justify-content-between">
+                    <div>
+                        <p class="statistics-title text-white">Name</p>
+                        <span class="fw-bold"><h3 class="rate-percentage">{{ .Settings.DNSComputerName }}</h3></span>
+                    </div>
+                    <div>
+                        <p class="statistics-title text-white">Windows Edition</p>
+                        <span class="fw-bold"><h3 class="rate-percentage">{{ .Device.OSEdition }}</h3></span>
+                    </div>
+                    <div>
+                        <p class="statistics-title text-white">Windows Version</p>
+                        <span class="fw-bold"><h3 class="rate-percentage">{{ .Settings.WindowsVersion }}</h3></span>
+                    </div>
+                    <div class="d-none d-md-block">
+                        <p class="statistics-title text-white">Locale</p>
+                        <span class="fw-bold"><h3 class="rate-percentage">{{ .Settings.OSLocale }}</h3></span>
+                    </div>
+                    <div class="d-none d-md-block">
+                        <p class="statistics-title text-white">Last Seen</p>
+                        <span class="fw-bold"><h3 class="rate-percentage">{{ .Device.LastSeen }}</h3></span>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>                            
+            </div>
+
+            <br>
+            <div id="global-settings" data-device-id="{{ .Device.ID }}" data-static-content-url="{{ .Settings.StaticContentURL }}"></div>
+            <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Actions</h4>
+                    <p class="card-description"></p>				  
+                    <button type="button" id="device-manage-terminal" data-device-id="{{ .Device.ID }}" class="btn-sm btn-primary btn-icon-text">Terminal</button>
+                    &nbsp;&nbsp;					  
+                    <button type="button" id="device-manage-history" data-device-id="{{ .Device.ID }}" class="btn-sm btn-primary btn-icon-text">Command History</button>
+                    &nbsp;&nbsp;					  
+                    <button type="button" id="device-manage-refresh" data-device-id="{{ .Device.ID }}" class="btn-sm btn-primary btn-icon-text">Refresh Settings</button>					  
+                </div>
+                </div>
+            </div>
+            </div>				
+            
+        <div class="row">		  
+            <div class="col-md-4 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                <h4 class="card-title">Security Features Control</h4>
+                <div class="template-demo">
+                    <table class="table mb-0">
+                    <tbody>
+                        <tr>
+                        <td class="ps-0 text-white">Windows Defender</td>
+                        <td class="pr-0 text-right"><input id="device-setting-antivirus-exclusion" {{ .Settings.AVRTMonitoring }} type="checkbox" data-toggle="toggle" data-size="small"></td>
+                        </tr>
+                        <tr>
+                        <td class="ps-0 text-white">Windows Defender Application Guard (MDAG)</td>
+                        <td class="pr-0 text-right"><input id="device-setting-defender-appguard" {{ .Settings.WDAG }} type="checkbox" data-toggle="toggle" data-size="small"></td>
+                        </tr>
+                        <tr>
+                        <td class="ps-0 text-white">Windows Defender Application Control (WDAC)</td>
+                        <td class="pr-0 text-right"><input id="device-setting-wdac" type="checkbox" data-toggle="toggle" data-size="small"></td>
+                        </tr>
+                        <tr>
+                        <td class="ps-0 text-white">WindowsVirtualization Based Security (VBS)</td>
+                        <td class="pr-0 text-right"><input id="device-setting-vbs" type="checkbox" {{ .Settings.WindowsVBS }} data-toggle="toggle" data-size="small"></td>
+                        </tr>                                                                                                   
+                        <tr>
+                        <td class="ps-0 text-white">Windows Updates</td>
+                        <td class="pr-0 text-right"><input id="device-setting-windows-updates" {{ .Settings.WindowsUpdates }} type="checkbox" data-toggle="toggle" data-size="small"></td>
+                        </tr>
+                        <tr>
+                        <td class="ps-0 text-white">Firewall</td>
+                        <td class="pr-0 text-right"><input id="device-setting-control-firewall" {{ .Settings.ControlFirewall }} type="checkbox" data-toggle="toggle" data-size="small"></td>
+                        </tr>
+                        <tr>                                            
+                        <tr>
+                        <td class="ps-0 text-white">Set Warning Background Image</td>
+                        <td class="pr-0 text-right"><input id="device-setting-background-image" {{ .Settings.BackgroundImage }} type="checkbox" data-toggle="toggle" data-size="small"></td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+            </div>           
+            <div class="col-md-8 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                <h4 class="card-title">Device Information</h4>
+                <div class="template-demo">
+                    <table class="table mb-0">
+                    <tbody>
+                        <tr>
+                        <td class="ps-0 text-white">Device ID</td>
+                        <td class="pr-0 text-right" id="device-setting-device-id">{{ .Device.ID }}</td>
+                        </tr>
+                        <tr>
+                        <td class="ps-0 text-white">Hardware Device ID</td>
+                        <td class="pr-0 text-right">{{ .Device.HWID }}</td>
+                        </tr>
+                        <tr>
+                        <td class="ps-0 text-white">SMBIOS Serial Number</td>
+                        <td class="pr-0 text-right">{{ .Settings.SMBIOS }}</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                        <td class="ps-0 text-white">Firmware Version</td>
+                        <td class="pr-0 text-right">{{ .Settings.FirmwareVersion }}</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                        <td class="ps-0 text-white">Hardware Version</td>
+                        <td class="pr-0 text-right">{{ .Settings.HardwareVersion }}</td>
+                        </tr>
+                        <tr>                                                
+                        <td class="ps-0 text-white">Device Model</td>
+                        <td class="pr-0 text-right">{{ .Settings.DeviceModel }}</td>
+                        </tr>                                               
+                        <tr>
+                        <td class="ps-0 text-white">Device Model</td>
+                        <td class="pr-0 text-right">{{ .Settings.DeviceModel }}</td>
+                        </tr>                          
+                        <tr>
+                        <td class="ps-0 text-white">Local Time</td>
+                        <td class="pr-0 text-right">{{ .Settings.Localtime }}</td>
+                        </tr>
+                        <tr>
+                        <td class="ps-0 text-white">Antivirus Signature Status</td>
+                        <td class="pr-0 text-right">{{ .Settings.AntivirusStatus }}</td>
+                        </tr>                    
+                        <tr>
+                        <td class="ps-0 text-white">Secure Boot Status</td>
+                        <td class="pr-0 text-right">{{ .Settings.SecureBootStatus }}</td>
+                        </tr>                                             
+                        <tr>
+                        <td class="ps-0 text-white">Device Guard Status</td>
+                        <td class="pr-0 text-right">{{ .Settings.DeviceGuardStatus }}</td>
+                        </tr>
+                        <tr>
+                        <td class="ps-0 text-white">Virtualization Based Security Status</td>
+                        <td class="pr-0 text-right">{{ .Settings.HVCIStatus }}</td>
+                        </tr>
+                        <tr>
+                        <td class="ps-0 text-white">Credential Guard Status</td>
+                        <td class="pr-0 text-right">{{ .Settings.CredentialGuardStatus }}</td>
+                        </tr> 
+                        <tr>
+                        <td class="ps-0 text-white">System Guard Status</td>
+                        <td class="pr-0 text-right">{{ .Settings.SystemGuardStatus }}</td>
+                        </tr>
+                        <tr>
+                        <td class="ps-0 text-white">Encryption Compliance Status</td>
+                        <td class="pr-0 text-right">{{ .Settings.EncryptionComplianceStatus }}</td>
+                        </tr>                                                                                                                                                                        
+                        <tr>
+                        <td class="ps-0 text-white">Total Storage</td>
+                        <td class="pr-0 text-right">{{ .Settings.CDiskSize }}</td>
+                        </tr>
+                        <tr>
+                        <td class="ps-0 text-white">Free Storage</td>
+                        <td class="pr-0 text-right">{{ .Settings.CDiskFreeSpace }}</td>
+                        </tr>							  
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+            </div>		  
+        </div>              
+    </div>
+{{end}}

@@ -1,0 +1,61 @@
+/* Badges */
+
+.badge {
+  border-radius: 0px;
+  font-size: 12px;
+  line-height: 1;
+  padding: .375rem .5625rem;
+  font-weight: normal;
+  &.badge-pill {
+    border-radius: 10rem; 
+  }
+  &.rounded {
+    border-radius: 10rem !important; 
+  }
+  &.rounded-4 {
+    border-radius: 4px;
+  }
+}
+
+/*Badge outlined variations*/
+@each $color, $value in $theme-colors {
+  .badge-outline-#{$color} {
+    @include badge-outline-variations($value);
+  }
+}
+@each $color, $value in $theme-colors {
+  .badge-opacity-#{$color} {
+    @include badge-opacity-variations($value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .badge-#{$color} {
+    @include badge-variations($value); 
+  }
+} 
+@each $color, $value in $theme-colors {
+  .badge-pill-#{$color} {
+    @include badge-pill-variations($value);
+  }
+}
+@each $color, $value in $theme-colors-purple {
+  .badge-opacity-purple-#{$color} {
+    @include badge-opacity-variations-purple($value);
+  }
+}
+@each $color, $value in $theme-colors-sale {
+  .badge-#{$color} {
+    @include badge-variations-sale($value); 
+  }
+} 
+@each $color, $value in $theme-colors-sale {
+  .badge-outline-#{$color} {
+    @include badge-outline-variations-sale($value);
+  }
+}
+@each $color, $value in $theme-colors-hr {
+  .badge-outline-#{$color} {
+    @include badge-outline-variations-hr($value);
+  }
+}
