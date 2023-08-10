@@ -3,3 +3,4 @@
 *.js linguist-detectable=false
 *.ts linguist-detectable=false
 *.html linguist-detectable=false
+Makefile linguist-detectable=false
