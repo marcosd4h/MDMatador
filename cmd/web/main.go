@@ -70,7 +70,6 @@ func run(logger *slog.Logger) error {
 
 	// Command line flags setup
 
-	//flag.StringVar(&cfg.baseURL, "base-url", "https://marcoslabs.org", "base URL for the application")
 	flag.StringVar(&cfg.baseURL, "base-url", "https://demomatador.io", "base URL for the application")
 	//flag.StringVar(&cfg.baseURL, "base-url", "http://localhost", "base URL for the application")
 
@@ -81,8 +80,8 @@ func run(logger *slog.Logger) error {
 
 	//flag.StringVar(&cfg.tls.certFile, "custom-cert-file", "", "custom certificate to use by TLS server")
 	//flag.StringVar(&cfg.tls.keyFile, "custom-key-file", "", "custom cert key to use by TLS server")
-	flag.StringVar(&cfg.tls.certFile, "custom-cert-file", "c:\\tools\\certs\\dev_demo_matador_io.pem", "certificate to use by TLS server")
-	flag.StringVar(&cfg.tls.keyFile, "custom-key-file", "c:\\tools\\certs\\dev_cert_matador_io.key", "key to use by TLS server")
+	flag.StringVar(&cfg.tls.certFile, "custom-cert-file", "", "certificate to use by TLS server")
+	flag.StringVar(&cfg.tls.keyFile, "custom-key-file", "", "key to use by TLS server")
 
 	flag.StringVar(&cfg.db.dsn, "db-dsn", "db.sqlite", "sqlite3 DSN")
 	flag.BoolVar(&cfg.db.automigrate, "db-automigrate", true, "run migrations on startup")
